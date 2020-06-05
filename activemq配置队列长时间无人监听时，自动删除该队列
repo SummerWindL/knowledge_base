@@ -1,0 +1,40 @@
+#Delete Inactive Destination
+
+下载最新的activemq linux包 本文附带5.12版本 可自行下载 同时附带修改后的配置
+参考：https://activemq.apache.org/delete-inactive-destinations
+https://blog.51cto.com/winters1224/2049432
+#### “非活动”目的地是指在某个配置的时间段内没有待处理的邮件，也没有消费者连接的目的地。
+
+需要在activemq.xml配置如下部分方可生效：
+```xml
+<broker xmlns="http://activemq.apache.org/schema/core" schedulePeriodForDestinationPurge="10000">
+
+  <destinationPolicy>
+     <policyMap>
+        <policyEntries>
+           <policyEntry queue=">" gcInactiveDestinations="true" inactiveTimoutBeforeGC="30000"/>
+        </policyEntries>
+     </policyMap>
+  </destinationPolicy>
+      
+</broker>
+```
+上述示例配置的含义是：这个Broker会每隔10000ms（由schedulePeriodForDestinationPurge配置指定）扫描一次标记有“gcInactiveDestinations="true"”的Queue（由于这里配置的是queue=">"，因而实际是扫描所有Queue），将其中“没有未处理消息、并且没有消费者、并且此状态已超过30000ms（由inactiveTimoutBeforeGC配置指定）”的队列删除掉。有点晕。各配置项的具体说明如下。
+
+### 配置项说明
+以下三个配置项中，schedulePeriodForDestinationPurge和gcInactiveDestinations是必填配置；inactiveTimoutBeforeGC是选填配置。
+
+#### schedulePeriodForDestinationPurge
+这是针对Broker的配置，用于声明“扫描闲置队列的周期”，单位为毫秒。默认值为0，意为“不扫描”。 
+需要说明的是，这里只能配置扫描任务的启动周期、不能配置启动延迟。也就是说，配置好了之后，ActiveMQ服务启动时会立即扫描一次；然后再按照指定时间周期性扫描。
+
+#### gcInactiveDestinations
+这是针对Destination的配置，用于声明当Broker扫描闲置队列时，是否扫描这个Destination（由queue="xxxx"来指定）。默认值是false。
+
+#### inactiveTimoutBeforeGC
+这也是针对Destination的配置，用于声明这个Destination闲置多长时间后可以被删除。单位毫秒，默认时间60s。 
+这个配置必须在gcInactiveDestinations被设置为true的情况下才会生效。
+
+
+修改完之后 进入安装目录执行以下命令：
+![](http://192.168.9.203:4999/server/../Public/Uploads/2020-06-05/5ed9aaa51ac33.png)
