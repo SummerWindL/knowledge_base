@@ -1,0 +1,126 @@
+# PostgreSQL 安装 redis_fdw 实现访问redis 附附件
+## 1.介绍
+redis_fdw 是Dave的一个孵化项目 最先于7年前发布在[Dave](https://pgxn.org/user/pgsnake?spm=a2c4e.10696291.0.0.7a6f19a4cgLOL8)博客
+
+## 2.目前迁移到github维护
+>地址：https://github.com/pg-redis-fdw/redis_fdw
+安装时可下载对应的PostgreSQL版本：
+![](http://192.168.9.203:4999/server/../Public/Uploads/2020-06-04/5ed8b747ed282.png)
+
+## 3.这里我们选择REL_10_STABLE版本
+参考 **https://github.com/Vonng/pg/blob/master/tools/redis_fdw-install.md**
+
+### Redis FDW 安装
+
+** 1.先安装hiredis**
+
+```bash
+git clone https://github.com/redis/hiredis
+cd hiredis
+make -j8
+sudo make install
+
+```
+
+** 2.再安装`redis_fdw`即可**
+
+```bash
+git clone https://github.com/pg-redis-fdw/redis_fdw
+cd redis_fdw
+PGSQL_BIN="/usr/local/pgsql/bin/"
+git checkout REL9_5_STABLE
+PATH="$PGSQL_BIN:$PATH" make USE_PGXS=1
+sudo PATH="$PGSQL_BIN:$PATH" make USE_PGXS=1 install
+```
+
+**接下来就可以使用redis_fdw插件**
+#### redis_fdw Postgre使用方法：
+
+**注意**
+>如果创建扩展失败 出现如下错误：
+ERROR: could not load library “/usr/local/pgsql/lib/redis_fdw.so”: libhiredis.so.0.11: cannot open shared object file: No such file or directory
+
+参考：[此链接地址](https://stackoverflow.com/questions/39145328/error-could-not-load-library-usr-local-pgsql-lib-redis-fdw-so-libhiredis-so/39387084#39387084)
+
+```sql
+--创建扩展
+CREATE EXTENSION redis_fdw; 
+ 
+--定义新的外部服务器  https://www.postgresql.org/docs/9.4/static/sql-createserver.html
+create  SERVER redis_server
+FOREIGN DATA WRAPPER redis_fdw
+OPTIONS (address '192.168.9.201', port '6379');
+--address  是指redis的外部地址  port是指redis的端口号  并且 服务器名字也必须是唯一的。具体的请查看pg官方文档https://www.postgresql.org/docs/9.4/static/sql-createserver.html
+ 
+ 
+--定义一个新的外表  https://www.postgresql.org/docs/9.4/static/sql-createforeigntable.html
+CREATE FOREIGN TABLE redis_db0 (key text, val text)
+SERVER redis_server
+OPTIONS (database '0');
+ 
+--定义一个新的用户到外部服务器的映射 http://www.postgres.cn/docs/9.4/sql-createusermapping.html
+CREATE USER MAPPING FOR PUBLIC
+SERVER redis_server
+OPTIONS (password 'redis');   
+ 
+--定义一个外部表
+CREATE FOREIGN TABLE myredishash (key text, val text[])
+	SERVER redis_server
+	OPTIONS (database '0', tabletype 'hash', tablekeyprefix 'mytable:');
+
+--向外部表插入数据
+INSERT INTO myredishash (key, val)
+   VALUES ('mytable:r1','{prop1,val1,prop2,val2}');
+
+select * from myredishash;
+
+
+--list
+create foreign table db15_w_1key_list(val text)
+       server redis_server
+       options (singleton_key 'w_1key_list', tabletype 'list', database '15');
+
+select * from db15_w_1key_list;   
+insert into db15_w_1key_list values ('a'), ('c'),('e');
+
+--set
+create foreign table db15_w_1key_set(key text)
+       server redis_server
+       options (singleton_key 'w_1key_set', tabletype 'set', database '15');
+ 
+ --简单格式存储     
+ create foreign table db15_w_1key_scalar(val text)
+       server redis_server
+       options (singleton_key 'w_1key_scalar', database '15');
+      
+ select * from db15_w_1key_scalar;
+
+insert into db15_w_1key_scalar values ('only row');     
+
+
+  -修改
+UPDATE myredishash
+    SET val = '{prop3,val3,prop4,val4}'
+WHERE key = 'mytable:r1';
+--删除
+DELETE from myredishash
+    WHERE key = 'mytable:r1';
+		
+CREATE FOREIGN TABLE myredis_s_hash (key text, val text)
+SERVER redis_server
+OPTIONS (database '0', tabletype 'hash',  singleton_key 'mytable');
+	
+INSERT INTO myredis_s_hash (key, val)
+ VALUES ('prop1','val1'),('prop2','val2');
+	 
+UPDATE myredis_s_hash
+SET val = 'val23'
+WHERE key = 'prop1';
+		
+DELETE from myredis_s_hash
+ WHERE key = 'prop2';
+```
+
+最后使用redis客户端访问：
+![](http://192.168.9.203:4999/server/../Public/Uploads/2020-06-04/5ed8b97232f2e.png)
+
