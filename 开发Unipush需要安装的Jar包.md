@@ -27,12 +27,12 @@ mvn install:install-file -Dfile=D:\lib\gexin-rp-sdk-template-4.0.0.28.jar -Dgrou
 mvn install:install-file -Dfile=D:\lib\protobuf-java-2.5.0.jar -DgroupId=com.google.protobuf -DartifactId=protobuf-java -Dversion=2.5.0 -Dpackaging=jar
 ```
 
-```
 替换jar文件名 安装到本地开发的maven仓库
 
 将下边依赖放到maven项目 pom.xml中
 
 ```xml
+
 <dependency>
     <groupId>com.gexin.platform</groupId>
     <artifactId>gexin-rp-sdk-http</artifactId>
