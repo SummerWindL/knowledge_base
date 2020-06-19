@@ -31,8 +31,7 @@ mvn install:install-file -Dfile=D:\lib\protobuf-java-2.5.0.jar -DgroupId=com.goo
 
 将下边依赖放到maven项目 pom.xml中
 
-```xml
-
+```
 <dependency>
     <groupId>com.gexin.platform</groupId>
     <artifactId>gexin-rp-sdk-http</artifactId>
