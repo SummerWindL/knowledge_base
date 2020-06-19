@@ -1,13 +1,12 @@
 ﻿### UniPush集成了个推服务 实现手机APP端推送
-ikinloop为unipush在Java端封装全局调用的PushService模块。
-详见``platform-base`` -> ``platform-ikinloop`` -> ``platform-ikinloop-unipush`` maven模块。
-如果要针对这块进行开发 需要maven安装个推jar文件，以下提供安装方案：
+以下提供安装方案：
 
 **推荐使用第一种方案**
 
 #### 方案一：
 下载官方提供的Jar 该文档已经提供
 本地安装 依赖 执行如下命令 （注意检查 jar 所在路径，例子中为： D:\lib\ ）
+
 ```
 mvn install:install-file -Dfile=D:\lib\gexin-rp-sdk-http-4.1.1.3.jar -DgroupId=com.gexin.platform -DartifactId=gexin-rp-sdk-http -Dversion=4.1.1.3 -Dpackaging=jar
 ```
