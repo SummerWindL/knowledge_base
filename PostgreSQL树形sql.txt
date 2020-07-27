@@ -1,0 +1,239 @@
+-- Drop table
+
+-- DROP TABLE aigw.t_dict_inspection_item;
+
+CREATE TABLE aigw.t_dict_inspection_item (
+	inspectionitemcode varchar(64) NOT NULL,
+	inspectionitemname varchar(64) NOT NULL,
+	inspectionsubitemcode varchar(64) NOT NULL,
+	inspectionsubitemname varchar(64) NOT NULL,
+	inspectionindexcode varchar(64) NOT NULL,
+	inspectionindexname varchar(64) NULL,
+	inspectionitemsearchname varchar(64) NULL,
+	inspectionvaluedisplabel1 varchar(64) NULL,
+	inspectionvaluedisplabel2 varchar(64) NULL,
+	inspectionvaluedisplabel3 varchar(64) NULL,
+	inspectionvaluenum int4 NULL,
+	inspectionindextype int4 NULL DEFAULT 1,
+	inspectionindexunit varchar(64) NULL,
+	inspectionindexref text NULL,
+	inspectionindexmemo text NULL,
+	inspectionindexpointcnt int4 NULL DEFAULT 1,
+	categorycode varchar(64) NULL,
+	categoryname varchar(64) NULL,
+	categorysort int4 NULL DEFAULT 0,
+	doctordxflag int4 NULL DEFAULT 0,
+	fileviewflag int4 NULL DEFAULT 0,
+	needfileflag int4 NULL DEFAULT 0,
+	controltype jsonb NULL,
+	needfiletype jsonb NULL,
+	CONSTRAINT pk_t_dict_inspection_item PRIMARY KEY (inspectionitemcode, inspectionsubitemcode, inspectionindexcode)
+);
+CREATE UNIQUE INDEX t_dict_inspection_item_pk ON aigw.t_dict_inspection_item USING btree (inspectionitemcode, inspectionsubitemcode, inspectionindexcode);
+
+
+--初始化数据
+INSERT INTO aigw.t_dict_inspection_item (inspectionitemcode,inspectionitemname,inspectionsubitemcode,inspectionsubitemname,inspectionindexcode,inspectionindexname,inspectionindextype,inspectionindexunit,inspectionindexref,inspectionindexmemo,inspectionindexpointcnt,categorycode,categoryname,categorysort,doctordxflag,fileviewflag,needfileflag,controltype,needfiletype,inspectionvaluedisplabel1,inspectionvaluedisplabel2,inspectionvaluedisplabel3,inspectionvaluenum,inspectionitemsearchname) VALUES 
+('1001','体征检查','1002','体重','1001','体重',1,'kg',NULL,NULL,1,'0','基础检查',2,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'体重',NULL,NULL,1,NULL)
+,('1001','体征检查','1001','身高','1001','身高',1,'cm',NULL,NULL,1,'0','基础检查',1,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'身高',NULL,NULL,1,NULL)
+,('1001','体征检查','1009','BMI','1001','BMI指数',1,'kg/m2','18.5~24kg/m2',NULL,1,'0','基础检查',3,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'BMI指数',NULL,NULL,1,NULL)
+,('1001','体征检查','1005','血压','1001','血压',1,'mmHg','90~140/60~90mmHg','value1：收缩压 value2：舒张压',1,'0','基础检查',5,0,0,0,'{"pc": "simple_input2_number", "pad": "simple_input2_number", "phone": "simple_input2_number"}',NULL,'收缩压','舒张压',NULL,2,NULL)
+,('1001','体征检查','1006','心率','1001','心率',1,'次/分','60~100次/分',NULL,1,'0','基础检查',11,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'心率',NULL,NULL,1,NULL)
+,('1001','体征检查','1003','腰围','1001','腰围',1,'cm',NULL,NULL,1,'1','体征检查',4,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'腰围',NULL,NULL,1,NULL)
+,('1001','体征检查','1005','血压','1002','左侧血压',1,'mmHg','90~140/60~90mmHg','value1：收缩压 value2：舒张压',1,'1','体征检查',6,0,0,0,'{"pc": "simple_input2_number", "pad": "simple_input2_number", "phone": "simple_input2_number"}',NULL,'收缩压','舒张压',NULL,2,NULL)
+,('1001','体征检查','1052','呼吸','1001','呼吸',1,NULL,NULL,NULL,1,'1','体征检查',12,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'呼吸',NULL,NULL,1,NULL)
+,('1001','体征检查','1051','压力','1001','压力',1,NULL,NULL,NULL,1,'1','体征检查',14,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'压力',NULL,NULL,1,NULL)
+,('1001','体征检查','1004','视力','1002','矫正视力',1,NULL,NULL,'value1：左眼 value2：右眼',1,'1','体征检查',9,0,0,0,'{"pc": "simple_input2_number", "pad": "simple_input2_number", "phone": "simple_input2_number"}',NULL,'左眼','右眼',NULL,2,NULL)
+;
+INSERT INTO aigw.t_dict_inspection_item (inspectionitemcode,inspectionitemname,inspectionsubitemcode,inspectionsubitemname,inspectionindexcode,inspectionindexname,inspectionindextype,inspectionindexunit,inspectionindexref,inspectionindexmemo,inspectionindexpointcnt,categorycode,categoryname,categorysort,doctordxflag,fileviewflag,needfileflag,controltype,needfiletype,inspectionvaluedisplabel1,inspectionvaluedisplabel2,inspectionvaluedisplabel3,inspectionvaluenum,inspectionitemsearchname) VALUES 
+('1001','体征检查','1005','血压','1003','右侧血压',1,'mmHg','90~140/60~90mmHg','value1：收缩压 value2：舒张压',1,'1','体征检查',7,0,0,0,'{"pc": "simple_input2_number", "pad": "simple_input2_number", "phone": "simple_input2_number"}',NULL,'收缩压','舒张压',NULL,2,NULL)
+,('1001','体征检查','1004','视力','1001','裸眼视力',1,NULL,NULL,'value1：左眼 value2：右眼',1,'1','体征检查',8,0,0,0,'{"pc": "simple_input2_number", "pad": "simple_input2_number", "phone": "simple_input2_number"}',NULL,'左眼','右眼',NULL,2,NULL)
+,('1001','体征检查','1008','体温','1001','体温',1,'°','36.3℃~37.2℃(口腔)、36.1℃~37℃(腋窝)',NULL,1,'1','体征检查',10,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'体温',NULL,NULL,1,NULL)
+,('1001','体征检查','1050','情绪','1001','情绪',1,NULL,NULL,NULL,1,'1','体征检查',13,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'情绪',NULL,NULL,1,NULL)
+,('1001','体征检查','1053','脉率','1001','脉率',1,'次/分',NULL,NULL,1,'1','体征检查',15,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'脉率',NULL,NULL,1,NULL)
+,('1001','体征检查','1007','血氧','1001','血氧',1,'%','95%~99%',NULL,1,'1','体征检查',16,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'血氧',NULL,NULL,1,NULL)
+,('1002','生化检验','1001','血糖','1001','空腹血糖',1,'mmol/L','3.0~6.0mmol/L',NULL,1,'2','血糖',1,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'空腹血糖',NULL,NULL,1,NULL)
+,('1002','生化检验','1001','血糖','1002','餐后2H血糖',1,'mmol/L','3.9~7.7mmol/L',NULL,1,'2','血糖',2,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'餐后2H血糖',NULL,NULL,1,NULL)
+,('1002','生化检验','1001','血糖','1003','随机血糖',1,'mmol/L','3.9~7.7mmol/L',NULL,1,'2','血糖',3,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'随机血糖',NULL,NULL,1,NULL)
+,('1002','生化检验','1002','血脂','1004','低密度脂蛋白(LDL)',1,'mmol/L','≤3.12mmol/L',NULL,1,'3','血脂',0,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'低密度脂蛋白(LDL)',NULL,NULL,1,NULL)
+;
+INSERT INTO aigw.t_dict_inspection_item (inspectionitemcode,inspectionitemname,inspectionsubitemcode,inspectionsubitemname,inspectionindexcode,inspectionindexname,inspectionindextype,inspectionindexunit,inspectionindexref,inspectionindexmemo,inspectionindexpointcnt,categorycode,categoryname,categorysort,doctordxflag,fileviewflag,needfileflag,controltype,needfiletype,inspectionvaluedisplabel1,inspectionvaluedisplabel2,inspectionvaluedisplabel3,inspectionvaluenum,inspectionitemsearchname) VALUES 
+('1002','生化检验','1002','血脂','1001','总胆固醇(TC)',1,'mmol/L','3~5.2mmol/L',NULL,1,'3','血脂',0,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'总胆固醇(TC)',NULL,NULL,1,NULL)
+,('1002','生化检验','1002','血脂','1002','甘油三酯(TG)',1,'mmol/L','≤1.7mmol/L',NULL,1,'3','血脂',0,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'甘油三酯(TG)',NULL,NULL,1,NULL)
+,('1002','生化检验','1002','血脂','1003','高密度脂蛋白(HDL)',1,'mmol/L','≥1.04mmol/L',NULL,1,'3','血脂',0,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'高密度脂蛋白(HDL)',NULL,NULL,1,NULL)
+,('1002','生化检验','1003','肾功能','1001','血清肌酐',1,'μmol/L','男:149~416μmol/L、女:89~357μmol/L',NULL,1,'4','肾功能',1,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'血清肌酐',NULL,NULL,1,NULL)
+,('1002','生化检验','1003','肾功能','1002','血尿素',1,'mmol/L','男:54~106μmol/L、女:44~97μmol/L',NULL,1,'4','肾功能',2,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'血尿素',NULL,NULL,1,NULL)
+,('1002','生化检验','1003','肾功能','1003','血钾浓度',1,'mmol/L',NULL,NULL,1,'4','肾功能',3,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'血钾浓度',NULL,NULL,1,NULL)
+,('1002','生化检验','1003','肾功能','1004','血钠浓度',1,'mmol/L',NULL,NULL,1,'4','肾功能',4,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'血钠浓度',NULL,NULL,1,NULL)
+,('1002','生化检验','1004','凝血功能','1001','凝血酶原时间(PT)',1,'秒',NULL,NULL,1,'5','凝血功能',1,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'凝血酶原时间(PT)',NULL,NULL,1,NULL)
+,('1002','生化检验','1004','凝血功能','1003','纤维蛋白原(FIB)',1,'g/L',NULL,NULL,1,'5','凝血功能',3,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'纤维蛋白原(FIB)',NULL,NULL,1,NULL)
+,('1002','生化检验','1004','凝血功能','1004','凝血酶时间(TT)',1,'秒',NULL,NULL,1,'5','凝血功能',4,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'凝血酶时间(TT)',NULL,NULL,1,NULL)
+;
+INSERT INTO aigw.t_dict_inspection_item (inspectionitemcode,inspectionitemname,inspectionsubitemcode,inspectionsubitemname,inspectionindexcode,inspectionindexname,inspectionindextype,inspectionindexunit,inspectionindexref,inspectionindexmemo,inspectionindexpointcnt,categorycode,categoryname,categorysort,doctordxflag,fileviewflag,needfileflag,controltype,needfiletype,inspectionvaluedisplabel1,inspectionvaluedisplabel2,inspectionvaluedisplabel3,inspectionvaluenum,inspectionitemsearchname) VALUES 
+('1002','生化检验','1014','梅毒','1003','RPP结果',2,NULL,NULL,NULL,1,'15','梅毒',2,0,0,0,'{"pc": "simple_radio", "pad": "simple_radio", "phone": "simple_radio"}',NULL,'RPP结果',NULL,NULL,1,NULL)
+,('1002','生化检验','1004','凝血功能','1002','活化部分凝血活酶时间(APTT)',1,'秒',NULL,NULL,1,'5','凝血功能',2,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'活化部分凝血活酶时间(APTT)',NULL,NULL,1,NULL)
+,('1002','生化检验','1005','血常规','1002','血红蛋白(Hb)',1,'g/L',NULL,NULL,1,'6','血常规',2,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'血红蛋白(Hb)',NULL,NULL,1,NULL)
+,('1002','生化检验','1005','血常规','1001','红细胞计数(RBC)',1,'/L',NULL,NULL,1,'6','血常规',1,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'红细胞计数(RBC)',NULL,NULL,1,NULL)
+,('1002','生化检验','1005','血常规','1006','血小板计数',1,'10^9/L',NULL,NULL,1,'6','血常规',6,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'血小板计数',NULL,NULL,1,NULL)
+,('1002','生化检验','1005','血常规','1003','血细胞比容(HCT)',1,'%',NULL,NULL,1,'6','血常规',3,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'血细胞比容(HCT)',NULL,NULL,1,NULL)
+,('1002','生化检验','1005','血常规','1004','白细胞计数',1,'10^9/L',NULL,NULL,1,'6','血常规',4,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'白细胞计数',NULL,NULL,1,NULL)
+,('1002','生化检验','1005','血常规','1005','白细胞分类计数(DC)',1,'/L',NULL,NULL,1,'6','血常规',5,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'白细胞分类计数(DC)',NULL,NULL,1,NULL)
+,('1002','生化检验','1006','肝功能','1005','总胆汁酸(TBA)',1,'μmol/L',NULL,NULL,1,'7','肝功能',5,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'总胆汁酸(TBA)',NULL,NULL,1,NULL)
+,('1002','生化检验','1006','肝功能','1008','结合胆红素(SDB)',1,'μmol/L',NULL,NULL,1,'7','肝功能',8,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'结合胆红素(SDB)',NULL,NULL,1,NULL)
+;
+INSERT INTO aigw.t_dict_inspection_item (inspectionitemcode,inspectionitemname,inspectionsubitemcode,inspectionsubitemname,inspectionindexcode,inspectionindexname,inspectionindextype,inspectionindexunit,inspectionindexref,inspectionindexmemo,inspectionindexpointcnt,categorycode,categoryname,categorysort,doctordxflag,fileviewflag,needfileflag,controltype,needfiletype,inspectionvaluedisplabel1,inspectionvaluedisplabel2,inspectionvaluedisplabel3,inspectionvaluenum,inspectionitemsearchname) VALUES 
+('1002','生化检验','1006','肝功能','1006','总蛋白(TP)',1,'g/L',NULL,NULL,1,'7','肝功能',6,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'总蛋白(TP)',NULL,NULL,1,NULL)
+,('1002','生化检验','1006','肝功能','1007','白蛋白(ALB)',1,'g/L',NULL,NULL,1,'7','肝功能',7,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'白蛋白(ALB)',NULL,NULL,1,NULL)
+,('1002','生化检验','1006','肝功能','1001','谷丙转氨酶(ALT)',1,'U/L',NULL,NULL,1,'7','肝功能',1,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'谷丙转氨酶(ALT)',NULL,NULL,1,NULL)
+,('1002','生化检验','1006','肝功能','1002','谷草转氨酶(AST)',1,'U/L',NULL,NULL,1,'7','肝功能',2,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'谷草转氨酶(AST)',NULL,NULL,1,NULL)
+,('1002','生化检验','1006','肝功能','1003','总胆红素(TBIL)',1,'μmol/L',NULL,NULL,1,'7','肝功能',3,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'总胆红素(TBIL)',NULL,NULL,1,NULL)
+,('1002','生化检验','1006','肝功能','1004','直接胆红素(DBIL)',1,'μmol/L',NULL,NULL,1,'7','肝功能',4,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'直接胆红素(DBIL)',NULL,NULL,1,NULL)
+,('1002','生化检验','1007','尿常规','1010','尿糖',2,'mg/dl',NULL,NULL,1,'8','尿常规',10,0,0,0,'{"pc": "simple_radio_select", "pad": "simple_radio", "phone": "simple_radio"}',NULL,'尿糖',NULL,NULL,1,NULL)
+,('1002','生化检验','1007','尿常规','1008','尿酮体',2,'mmol/L',NULL,NULL,1,'8','尿常规',8,0,0,0,'{"pc": "simple_radio_select", "pad": "simple_radio", "phone": "simple_radio"}',NULL,'尿酮体',NULL,NULL,1,NULL)
+,('1002','生化检验','1007','尿常规','1004','尿蛋白',2,'mg/dl',NULL,NULL,1,'8','尿常规',4,0,0,0,'{"pc": "simple_radio_select", "pad": "simple_radio", "phone": "simple_radio"}',NULL,'尿蛋白',NULL,NULL,1,NULL)
+,('1002','生化检验','1007','尿常规','1006','尿潜血',2,'cell/uL',NULL,NULL,1,'8','尿常规',6,0,0,0,'{"pc": "simple_radio_select", "pad": "simple_radio", "phone": "simple_radio"}',NULL,'尿潜血',NULL,NULL,1,NULL)
+;
+INSERT INTO aigw.t_dict_inspection_item (inspectionitemcode,inspectionitemname,inspectionsubitemcode,inspectionsubitemname,inspectionindexcode,inspectionindexname,inspectionindextype,inspectionindexunit,inspectionindexref,inspectionindexmemo,inspectionindexpointcnt,categorycode,categoryname,categorysort,doctordxflag,fileviewflag,needfileflag,controltype,needfiletype,inspectionvaluedisplabel1,inspectionvaluedisplabel2,inspectionvaluedisplabel3,inspectionvaluenum,inspectionitemsearchname) VALUES 
+('1002','生化检验','1008','肺功能','1008','MMEF 75/25',1,'L/s','4.29L/s',NULL,1,'10','肺功能',7,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'MMEF 75/25',NULL,NULL,1,NULL)
+,('1002','生化检验','1008','肺功能','1001','FVC',1,'L','4.13L',NULL,1,'10','肺功能',1,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'FVC',NULL,NULL,1,NULL)
+,('1002','生化检验','1008','肺功能','1002','FEV1',1,'L','3.65L',NULL,1,'10','肺功能',2,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'FEV1',NULL,NULL,1,NULL)
+,('1002','生化检验','1008','肺功能','1003','FEV1/FVC',1,'%','>75%',NULL,1,'10','肺功能',3,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'FEV1/FVC',NULL,NULL,1,NULL)
+,('1002','生化检验','1008','肺功能','1006','MEF 50',1,'L/s','4.80L/s',NULL,1,'10','肺功能',4,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'MEF 50',NULL,NULL,1,NULL)
+,('1002','生化检验','1008','肺功能','1007','MEF 25',1,'L/s','4.80L/s',NULL,1,'10','肺功能',8,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'MEF 25',NULL,NULL,1,NULL)
+,('1002','生化检验','1008','肺功能','1004','PEF',1,'L/s','8.38L/s',NULL,1,'10','肺功能',5,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'PEF',NULL,NULL,1,NULL)
+,('1002','生化检验','1008','肺功能','1005','MEF 75',1,'L/s','2.09L/s',NULL,1,'10','肺功能',6,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'MEF 75',NULL,NULL,1,NULL)
+,('1002','生化检验','1009','尿酸','1001','尿酸(UA)',1,'μmol/L','男:149~416μmol/L、女:89~357μmol/L',NULL,1,'11','尿酸',0,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'尿酸(UA)',NULL,NULL,1,NULL)
+,('1002','生化检验','1011','糖化血红蛋白','1001','糖化血红蛋白(HbA1c)',1,'%','4%~6%',NULL,1,'12','糖化血红蛋白',0,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'糖化血红蛋白(HbA1c)',NULL,NULL,1,NULL)
+;
+INSERT INTO aigw.t_dict_inspection_item (inspectionitemcode,inspectionitemname,inspectionsubitemcode,inspectionsubitemname,inspectionindexcode,inspectionindexname,inspectionindextype,inspectionindexunit,inspectionindexref,inspectionindexmemo,inspectionindexpointcnt,categorycode,categoryname,categorysort,doctordxflag,fileviewflag,needfileflag,controltype,needfiletype,inspectionvaluedisplabel1,inspectionvaluedisplabel2,inspectionvaluedisplabel3,inspectionvaluenum,inspectionitemsearchname) VALUES 
+('1002','生化检验','1012','大便潜血','1001','大便潜血',2,NULL,NULL,NULL,1,'13','大便潜血',0,0,0,0,'{"pc": "simple_radio", "pad": "simple_radio", "phone": "simple_radio"}',NULL,'大便潜血',NULL,NULL,1,NULL)
+,('1002','生化检验','1013','乙型肝炎表面抗原','1001','乙型肝炎表面抗原',2,NULL,NULL,NULL,1,'14','乙型肝炎表面抗原',0,0,0,0,'{"pc": "simple_radio", "pad": "simple_radio", "phone": "simple_radio"}',NULL,'乙型肝炎表面抗原',NULL,NULL,1,NULL)
+,('1002','生化检验','1014','梅毒','1001','快检结果',2,NULL,NULL,NULL,1,'15','梅毒',1,0,0,0,'{"pc": "simple_radio", "pad": "simple_radio", "phone": "simple_radio"}',NULL,'快检结果',NULL,NULL,1,NULL)
+,('1002','生化检验','1014','梅毒','1002','TPPA结果',2,NULL,NULL,NULL,1,'15','梅毒',3,0,0,0,'{"pc": "simple_radio", "pad": "simple_radio", "phone": "simple_radio"}',NULL,'TPPA结果',NULL,NULL,1,NULL)
+,('1002','生化检验','1015','HIV','1002','是否既往阳性',2,NULL,NULL,NULL,1,'16','HIV',1,0,0,0,'{"pc": "simple_radio", "pad": "simple_radio", "phone": "simple_radio"}',NULL,'是否既往阳性',NULL,NULL,1,NULL)
+,('1002','生化检验','1015','HIV','1001','快检结果',2,NULL,NULL,NULL,1,'16','HIV',2,0,0,0,'{"pc": "simple_radio", "pad": "simple_radio", "phone": "simple_radio"}',NULL,'快检结果',NULL,NULL,1,NULL)
+,('1002','生化检验','1015','HIV','1003','是否采集静脉血',2,NULL,NULL,NULL,1,'16','HIV',3,0,0,0,'{"pc": "simple_radio", "pad": "simple_radio", "phone": "simple_radio"}',NULL,'是否采集静脉血',NULL,NULL,1,NULL)
+,('1002','生化检验','1015','HIV','1004','确证结果',2,NULL,NULL,NULL,1,'16','HIV',4,0,0,0,'{"pc": "simple_radio", "pad": "simple_radio", "phone": "simple_radio"}',NULL,'确证结果',NULL,NULL,1,NULL)
+,('1002','生化检验','1016','尿微量白蛋白','1001','尿微量白蛋白',1,'mg/dl',NULL,NULL,1,'17','尿微量白蛋白',0,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'尿微量白蛋白',NULL,NULL,1,NULL)
+,('1002','生化检验','1017','乙型肝炎五项','1002','乙型肝炎表面抗体',1,NULL,'0-10',NULL,1,'18','乙型肝炎五项',2,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'乙型肝炎表面抗体',NULL,NULL,1,NULL)
+;
+INSERT INTO aigw.t_dict_inspection_item (inspectionitemcode,inspectionitemname,inspectionsubitemcode,inspectionsubitemname,inspectionindexcode,inspectionindexname,inspectionindextype,inspectionindexunit,inspectionindexref,inspectionindexmemo,inspectionindexpointcnt,categorycode,categoryname,categorysort,doctordxflag,fileviewflag,needfileflag,controltype,needfiletype,inspectionvaluedisplabel1,inspectionvaluedisplabel2,inspectionvaluedisplabel3,inspectionvaluenum,inspectionitemsearchname) VALUES 
+('1002','生化检验','1017','乙型肝炎五项','1003','乙型肝炎e抗原',1,NULL,'0-0.5',NULL,1,'18','乙型肝炎五项',3,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'乙型肝炎e抗原',NULL,NULL,1,NULL)
+,('1002','生化检验','1017','乙型肝炎五项','1004','乙型肝炎e抗体',1,NULL,'0-0.2',NULL,1,'18','乙型肝炎五项',4,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'乙型肝炎e抗体',NULL,NULL,1,NULL)
+,('1002','生化检验','1017','乙型肝炎五项','1005','乙型肝炎核心抗体',1,NULL,'0-0.9',NULL,1,'18','乙型肝炎五项',5,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'乙型肝炎核心抗体',NULL,NULL,1,NULL)
+,('1002','生化检验','1017','乙型肝炎五项','1001','乙型肝炎表面抗原',1,NULL,'0-0.5',NULL,1,'18','乙型肝炎五项',1,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'乙型肝炎表面抗原',NULL,NULL,1,NULL)
+,('1003','电生理检查','1001','单导心电图','1001','单导心电图',2,NULL,NULL,'保存到定性结果表中',1,'20','电生理',1,1,1,1,'{"pc": "simple_radio", "pad": "simple_radio", "phone": "simple_radio"}',NULL,'单导心电图',NULL,NULL,1,NULL)
+,('1003','电生理检查','1003','12导心电图','1003','12导心电图',2,NULL,NULL,'定性检查结果',1,'20','电生理',2,1,1,1,'{"pc": "simple_radio", "pad": "simple_radio", "phone": "simple_radio"}',NULL,'12导心电图',NULL,NULL,1,NULL)
+,('1004','影像检查','1001','X线片','1001','胸部X线片',2,NULL,NULL,NULL,1,'22','X线片',0,0,1,0,'{"pc": "simple_radio", "pad": "simple_radio", "phone": "simple_radio"}',NULL,'胸部X线片',NULL,NULL,1,NULL)
+,('1004','影像检查','1002','B超','1001','腹部B超',2,NULL,NULL,NULL,1,'23','B超',1,0,1,0,'{"pc": "simple_radio", "pad": "simple_radio", "phone": "simple_radio"}',NULL,'腹部B超',NULL,NULL,1,NULL)
+,('1004','影像检查','1002','B超','1002','其它B超',2,NULL,NULL,NULL,1,'23','B超',2,0,1,0,'{"pc": "simple_radio", "pad": "simple_radio", "phone": "simple_radio"}',NULL,'其它B超',NULL,NULL,1,NULL)
+,('1002','生化检验','1018','宫颈涂片','1001','宫颈涂片',2,NULL,NULL,NULL,1,'24','宫颈涂片',0,0,1,0,'{"pc": "simple_radio", "pad": "simple_radio", "phone": "simple_radio"}',NULL,'宫颈涂片',NULL,NULL,1,NULL)
+;
+INSERT INTO aigw.t_dict_inspection_item (inspectionitemcode,inspectionitemname,inspectionsubitemcode,inspectionsubitemname,inspectionindexcode,inspectionindexname,inspectionindextype,inspectionindexunit,inspectionindexref,inspectionindexmemo,inspectionindexpointcnt,categorycode,categoryname,categorysort,doctordxflag,fileviewflag,needfileflag,controltype,needfiletype,inspectionvaluedisplabel1,inspectionvaluedisplabel2,inspectionvaluedisplabel3,inspectionvaluenum,inspectionitemsearchname) VALUES 
+('1001','体征检查','1060','人体成分','1004','体脂率',1,'%',NULL,NULL,1,'25','人体成分',4,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'体脂率',NULL,NULL,1,NULL)
+,('1001','体征检查','1060','人体成分','1007','体质指数',1,NULL,NULL,NULL,1,'25','人体成分',7,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'体质指数',NULL,NULL,1,NULL)
+,('1001','体征检查','1060','人体成分','1008','腰臀比',1,NULL,NULL,NULL,1,'25','人体成分',8,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'腰臀比',NULL,NULL,1,NULL)
+,('1001','体征检查','1060','人体成分','1009','内脏脂肪指数',1,NULL,NULL,NULL,1,'25','人体成分',9,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'内脏脂肪指数',NULL,NULL,1,NULL)
+,('1001','体征检查','1060','人体成分','1010','基础代谢率',1,'kcal',NULL,NULL,1,'25','人体成分',10,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'基础代谢率',NULL,NULL,1,NULL)
+,('1001','体征检查','1060','人体成分','1003','肌肉率',1,'%',NULL,NULL,1,'25','人体成分',3,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'肌肉率',NULL,NULL,1,NULL)
+,('1001','体征检查','1060','人体成分','1011','水分率',1,'%',NULL,NULL,1,'25','人体成分',6,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'水分率',NULL,NULL,1,NULL)
+,('1001','体征检查','1060','人体成分','1013','肌肉量',1,'kg',NULL,NULL,1,'25','人体成分',6,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'肌肉量',NULL,NULL,1,NULL)
+,('1001','体征检查','1060','人体成分','1014','骨盐量',1,'kg',NULL,NULL,1,'25','人体成分',6,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'骨盐量',NULL,NULL,1,NULL)
+,('1001','体征检查','1060','人体成分','1015','细胞內液量',1,'kg',NULL,NULL,1,'25','人体成分',6,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'细胞內液量',NULL,NULL,1,NULL)
+;
+INSERT INTO aigw.t_dict_inspection_item (inspectionitemcode,inspectionitemname,inspectionsubitemcode,inspectionsubitemname,inspectionindexcode,inspectionindexname,inspectionindextype,inspectionindexunit,inspectionindexref,inspectionindexmemo,inspectionindexpointcnt,categorycode,categoryname,categorysort,doctordxflag,fileviewflag,needfileflag,controltype,needfiletype,inspectionvaluedisplabel1,inspectionvaluedisplabel2,inspectionvaluedisplabel3,inspectionvaluenum,inspectionitemsearchname) VALUES 
+('1001','体征检查','1060','人体成分','1016','细胞外液量',1,'kg',NULL,NULL,1,'25','人体成分',6,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'细胞外液量',NULL,NULL,1,NULL)
+,('1001','体征检查','1060','人体成分','1017','细胞內液率',1,'%',NULL,NULL,1,'25','人体成分',6,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'细胞內液率',NULL,NULL,1,NULL)
+,('1001','体征检查','1060','人体成分','1018','细胞外液率',1,'%',NULL,NULL,1,'25','人体成分',6,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'细胞外液率',NULL,NULL,1,NULL)
+,('1001','体征检查','1060','人体成分','1012','脂肪量',1,'kg',NULL,NULL,1,'25','人体成分',6,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'脂肪量',NULL,NULL,1,NULL)
+,('1001','体征检查','1060','人体成分','1001','水分量',1,'kg',NULL,NULL,1,'25','人体成分',1,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'水分量',NULL,NULL,1,NULL)
+,('1001','体征检查','1060','人体成分','1002','蛋白质',1,'kg',NULL,NULL,1,'25','人体成分',2,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'蛋白质',NULL,NULL,1,NULL)
+,('1001','体征检查','1060','人体成分','1005','骨质量',1,'kg',NULL,NULL,1,'25','人体成分',5,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'骨质量',NULL,NULL,1,NULL)
+,('1001','体征检查','1060','人体成分','1006','骨质率',1,'%',NULL,NULL,1,'25','人体成分',6,0,0,0,'{"pc": "simple_input_number", "pad": "simple_input_number", "phone": "simple_input_number"}',NULL,'骨质率',NULL,NULL,1,NULL)
+,('1006','其他检查','1001','人体成分报告','1001','人体成分报告',2,NULL,NULL,'保存到定性结果表中',1,'30','人体成分报告',0,0,1,1,'{"pc": "simple_radio", "pad": "simple_radio", "phone": "simple_radio"}',NULL,'人体成分报告',NULL,NULL,1,NULL)
+,('1006','其他检查','1002','肺功能报告','1001','肺功能报告',2,NULL,NULL,'保存到定性结果表中',1,'31','肺功能报告',0,0,1,1,'{"pc": "simple_radio", "pad": "simple_radio", "phone": "simple_radio"}',NULL,'肺功能报告',NULL,NULL,1,NULL)
+;
+
+
+CREATE OR REPLACE FUNCTION f_inspection_item_tree_query(
+    in_inspectionitemcode     VARCHAR(64),
+	in_inspectionsubitemcode     VARCHAR(64),
+	in_inspectionindexcode     VARCHAR(64),
+	in_inspectionindextype     int4,
+	OUT retcode integer, OUT retvalue text)
+ RETURNS record
+ LANGUAGE plpgsql
+AS $function$
+/*
+ * 公卫项目典表 树结构
+ * 参数：
+ * 返回：
+ *     retcode： 小于0，失败；==0成功
+ *     retvalue：返回关联表查询字段记录
+ * 备注：
+ * 
+*/
+declare
+	--	程序变量说明
+  v_cnt 		    	int4 DEFAULT 0;
+begin
+
+	select array_to_json(array_agg(row_to_json(t))) into retvalue
+	from (
+			select b.inspectionitemcode,
+						b.inspectionitemname,
+						b.inspectionindextype,
+						(
+							select
+								array_to_json(
+									array_agg( row_to_json( b.* ))
+								)
+									from
+										( select distinct inspectionitemcode from t_dict_inspection_item ) t 
+									where t.inspectionitemcode = b.inspectionitemcode 
+								) as children 
+								from (
+							select
+								a.inspectionitemcode,
+								a.inspectionitemname,
+								a.inspectionsubitemcode,
+								a.inspectionsubitemname,
+								a.inspectionindextype ,
+								(
+									select
+										array_to_json(
+											array_agg( row_to_json(t.*))
+										)
+									from
+										t_dict_inspection_item t 
+									where t.inspectionitemcode = a.inspectionitemcode 
+									and	 t.inspectionsubitemcode = a.inspectionsubitemcode
+								) as children
+							from
+								t_dict_inspection_item a  
+							where (in_inspectionitemcode ='' or a.inspectionitemcode=in_inspectionitemcode) and
+										 (in_inspectionsubitemcode ='' or a.inspectionsubitemcode=in_inspectionsubitemcode) and
+										 (in_inspectionindexcode ='' or a.inspectionindexcode=in_inspectionindexcode) 
+										and (in_inspectionindextype =  -1 or a.inspectionindextype=in_inspectionindextype) 
+							group by
+								a.inspectionitemcode ,
+								a.inspectionitemname,
+								a.inspectionsubitemcode,
+								a.inspectionsubitemname,
+								a.inspectionindextype 
+								) b group by 
+								b.inspectionitemcode,
+								b.inspectionitemname,
+								b.inspectionindextype
+	) AS t;
+	
+	--	处理空结果集
+	if (retvalue IS NULL ) then
+		retvalue := '[]';
+ 	end if;
+	--	处理返回结果
+	retcode := 0;
+
+end
+
+ $function$
