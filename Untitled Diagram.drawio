@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-06-20T12:56:58.774Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.106 Safari/537.36" etag="J1lvSE6NUIYe4kMd6e8P" version="14.8.0" type="github">
+<mxfile host="app.diagrams.net" modified="2021-06-20T13:00:12.205Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.106 Safari/537.36" etag="-hXNwiTmSLb5-BQ4ap1u" version="14.8.0" type="github">
   <diagram id="EPdFTwsxXow6yKQpClQg" name="Page-1">
-    <mxGraphModel dx="1447" dy="767" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1736" dy="920" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -292,7 +292,12 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="B3mxXPaatogXchF34-ks-91" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Verdana;fontSize=14;" parent="1" source="B3mxXPaatogXchF34-ks-88" target="B3mxXPaatogXchF34-ks-8" edge="1">
-          <mxGeometry relative="1" as="geometry" />
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="686" y="660" />
+              <mxPoint x="927" y="660" />
+            </Array>
+          </mxGeometry>
         </mxCell>
         <mxCell id="B3mxXPaatogXchF34-ks-93" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=Verdana;fontSize=14;" parent="1" source="B3mxXPaatogXchF34-ks-88" target="B3mxXPaatogXchF34-ks-18" edge="1">
           <mxGeometry relative="1" as="geometry">
@@ -323,6 +328,9 @@
         </mxCell>
         <mxCell id="B3mxXPaatogXchF34-ks-96" value="副园长" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="790" y="550" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="aNijLa5Wb7dYRHiopZRa-7" value="樟树市临江镇中心幼儿园行政管理示意图" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fontSize=50;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="390" y="335" width="920" height="70" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
