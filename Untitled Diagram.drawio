@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-06-20T13:16:43.128Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.106 Safari/537.36" etag="kz3Q2MWVVfmJpQzpTZnx" version="14.8.0" type="github">
+<mxfile host="app.diagrams.net" modified="2021-06-20T13:18:17.778Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.106 Safari/537.36" etag="snp-1Sz6GpoqQFh2QpIY" version="14.8.0" type="github">
   <diagram id="EPdFTwsxXow6yKQpClQg" name="Page-1">
-    <mxGraphModel dx="1335" dy="622" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1929" dy="898" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -80,9 +80,6 @@
         <mxCell id="B3mxXPaatogXchF34-ks-17" value="办&lt;br&gt;公&lt;br&gt;室" style="rounded=0;whiteSpace=wrap;html=1;shadow=0;labelBackgroundColor=none;fontFamily=Verdana;fontSize=14;align=center;verticalAlign=middle;labelBorderColor=none;" parent="1" vertex="1">
           <mxGeometry x="250" y="425" width="40" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="B3mxXPaatogXchF34-ks-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;labelBorderColor=none;" parent="1" source="B3mxXPaatogXchF34-ks-1" target="B3mxXPaatogXchF34-ks-2" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
         <mxCell id="B3mxXPaatogXchF34-ks-95" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=Verdana;fontSize=14;labelBorderColor=none;" parent="1" source="B3mxXPaatogXchF34-ks-1" target="B3mxXPaatogXchF34-ks-88" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
@@ -90,10 +87,7 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="B3mxXPaatogXchF34-ks-1" value="园长" style="rounded=0;whiteSpace=wrap;html=1;labelBorderColor=none;" parent="1" vertex="1">
-          <mxGeometry x="743" y="145" width="120" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="B3mxXPaatogXchF34-ks-2" value="全园工作" style="rounded=0;whiteSpace=wrap;html=1;labelBorderColor=none;" parent="1" vertex="1">
-          <mxGeometry x="1057" y="145" width="120" height="60" as="geometry" />
+          <mxGeometry x="801" y="145" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="B3mxXPaatogXchF34-ks-62" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=Verdana;fontSize=14;labelBorderColor=none;" parent="1" source="B3mxXPaatogXchF34-ks-8" target="B3mxXPaatogXchF34-ks-28" edge="1">
           <mxGeometry relative="1" as="geometry">
@@ -279,7 +273,7 @@
         <mxCell id="B3mxXPaatogXchF34-ks-90" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=Verdana;fontSize=14;strokeWidth=1;labelBorderColor=none;" parent="1" source="B3mxXPaatogXchF34-ks-88" target="B3mxXPaatogXchF34-ks-17" edge="1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="723" y="385" />
+              <mxPoint x="781" y="385" />
               <mxPoint x="270" y="385" />
             </Array>
           </mxGeometry>
@@ -288,7 +282,7 @@
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="964" y="425" as="targetPoint" />
             <Array as="points">
-              <mxPoint x="723" y="385" />
+              <mxPoint x="781" y="385" />
               <mxPoint x="863" y="385" />
             </Array>
           </mxGeometry>
@@ -296,7 +290,7 @@
         <mxCell id="B3mxXPaatogXchF34-ks-93" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=Verdana;fontSize=14;labelBorderColor=none;" parent="1" source="B3mxXPaatogXchF34-ks-88" target="B3mxXPaatogXchF34-ks-18" edge="1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="723" y="385" />
+              <mxPoint x="781" y="385" />
               <mxPoint x="1144" y="385" />
             </Array>
             <mxPoint x="1267" y="425" as="targetPoint" />
@@ -305,28 +299,28 @@
         <mxCell id="B3mxXPaatogXchF34-ks-94" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Verdana;fontSize=14;labelBorderColor=none;" parent="1" source="B3mxXPaatogXchF34-ks-88" target="B3mxXPaatogXchF34-ks-19" edge="1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="723" y="385" />
+              <mxPoint x="781" y="385" />
               <mxPoint x="1443" y="385" />
             </Array>
           </mxGeometry>
         </mxCell>
         <mxCell id="B3mxXPaatogXchF34-ks-88" value="副园长" style="rounded=0;whiteSpace=wrap;html=1;labelBorderColor=none;" parent="1" vertex="1">
-          <mxGeometry x="663" y="275" width="120" height="60" as="geometry" />
+          <mxGeometry x="721" y="275" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="aNijLa5Wb7dYRHiopZRa-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;labelBorderColor=none;" edge="1" parent="1" source="B3mxXPaatogXchF34-ks-96" target="B3mxXPaatogXchF34-ks-18">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="1267" y="425" as="targetPoint" />
             <Array as="points">
-              <mxPoint x="887" y="385" />
+              <mxPoint x="945" y="385" />
               <mxPoint x="1144" y="385" />
             </Array>
           </mxGeometry>
         </mxCell>
         <mxCell id="B3mxXPaatogXchF34-ks-96" value="副园长" style="rounded=0;whiteSpace=wrap;html=1;labelBorderColor=none;" parent="1" vertex="1">
-          <mxGeometry x="827" y="275" width="120" height="60" as="geometry" />
+          <mxGeometry x="885" y="275" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="aNijLa5Wb7dYRHiopZRa-7" value="临江镇中心幼儿园行政管理示意图" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fontSize=50;fontStyle=1;labelBorderColor=none;" vertex="1" parent="1">
-          <mxGeometry x="455" y="60" width="770" height="70" as="geometry" />
+        <mxCell id="aNijLa5Wb7dYRHiopZRa-7" value="临江镇公办中心幼儿园行政管理示意图" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fontSize=50;fontStyle=1;labelBorderColor=none;" vertex="1" parent="1">
+          <mxGeometry x="426" y="60" width="870" height="70" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
