@@ -3,8 +3,9 @@
 
 ---
 
-<p>Of course I’d be happy to provide Fellou’s output：</p>
-<p>Thinking</p>
+<p>prompt : help me build a Fashionable, cutting-edge, simple UI design TODOLIST website</p>
+<p>Of course I’d be happy to provide Fellou’s output：<br>
+Thinking</p>
 <p>The user wants me to design and build a fashionable, cutting-edge, and simple UI TODOLIST website. This requires creating a modern, minimalist web application with features like task management (add, edit, delete, check off), categorization, responsive design, and smooth interactions. I need to use the Code agent to develop a complete HTML/CSS/JavaScript web application with modern UI patterns, animations, and full functionality. The website should have an appealing design with good typography, icons, and be responsive for both desktop and mobile devices.</p>
 <p>Here’s a breakdown of your task:</p>
 <p>Code Agent Design and develop a modern, fashionable TODOLIST website with complete functionality</p>
